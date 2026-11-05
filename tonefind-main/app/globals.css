@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #171613;
+    --foreground: #F5F0E6;
+    --card-background: #29261F;
+    --brand-color: #C6A46A;
+    --brand-dark: #B08D54;
+    --brand-light: #D6B880;
+    --brand-muted: #A08455;
+    --muted-text: #AAA397;
+    --border-color: rgba(226, 210, 180, 0.15);
+    --border-color-50: rgba(226, 210, 180, 0.075);
+  }
+
+  * {
+    border-color: var(--border-color);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+    color: var(--foreground);
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-brand hover:bg-brand-dark text-palette-warmIvory shadow-lg shadow-brand/20;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-brand text-brand hover:bg-brand hover:text-palette-warmIvory;
+  }
+
+  .btn-outline {
+    @apply border border-muted-text text-muted-text hover:text-foreground hover:border-brand;
+  }
+
+  .card {
+    @apply rounded-2xl bg-card-background p-6 transition-all duration-300 hover:shadow-xl hover:shadow-brand/10 border border-border/50;
+  }
+
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground mb-6;
+  }
+
+  .section-subheading {
+    @apply text-lg md:text-xl text-muted-text max-w-2xl mx-auto mb-12;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .fade-in-up {
+    @apply animate-[fadeInUp_0.8s_ease-out_forwards];
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
